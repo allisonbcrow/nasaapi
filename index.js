@@ -38,3 +38,17 @@ $(document).mousemove(function (e) {
   $(".pointer").css({ left: e.pageX, top: e.pageY });
 });
 
+let container = document.getElementById("apod-container");
+    let element;
+    if(json.media_type === "image"){
+        element = document.createElement("img");
+        element.src = json.url;
+    }
+    else {
+        element = document.createElement("iframe");
+        element.src = json.url;
+        element.style.height = "85%";
+        element.style.width = "85%";
+        element.style.frameborder = "0";
+    }
+    container.appendChild(element);
